@@ -1,0 +1,27 @@
+<html>
+	<!-- Nothing to see here. -->
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+		<!-- <meta http-equiv="refresh" content="60"/> -->
+		<meta name="keywords" content="bullethell,shooter"/>
+		<meta name="description" content="Bullet Hell Web Testing."/>
+		<meta name="author" content="Shaman Tidiman"/>
+		<title>Bullet Hell Test</title>
+		<link rel="shortcut icon" type="image/png" href="sprites/icon.png">
+		<link id="favicon" rel="icon" type="image/png" href="sprites/icon.png">
+		<link rel="stylesheet" href="defaultstyle.css">
+	</head>
+	
+	<body bgcolor="black" text="white" link="green" alink="limegreen" vlink="darkgreen" onload="checkCookies();">
+		<ul id="debugMenu">
+            <a href="javascript:playSound('sounds/shot0.wav', 0.25);" class="buttonBasic animButton hasShadow">Lenk <span style="color:yellow">lol</span></a>
+			<a href="javascript:thePlayer._powerupType = clamp(thePlayer._powerupType + 1, 0, 5); playSound('sounds/shot1.wav', 0.25);" class="buttonBasic animButton hasShadow">Type+</a>
+			<a href="javascript:thePlayer._powerupType = clamp(thePlayer._powerupType - 1, 0, 5); playSound('sounds/shot2.wav', 0.25);" class="buttonBasic animButton hasShadow">Type-</a>
+        </ul>
+		
+		<canvas id="baseCanvas" width="480" height="360"></canvas>
+		<script src="scripts/Util.js"></script>
+		<script src="scripts/Basis.js"></script>
+		<script src="scripts/Game.js"></script>
+	</body>
+</html>
