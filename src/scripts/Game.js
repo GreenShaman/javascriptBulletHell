@@ -102,7 +102,7 @@ var Player = function(x, y) {
 	this._h = 16;
 	this._w = 16;
 	
-	this._Lv = 99;
+	this._Lv = 1;
 	this._HLmax = (this._Lv * 8) + 92;
 	this._HL = this._HLmax;
 	this._AMmax = (this._Lv * 2) + 28;
@@ -113,17 +113,17 @@ var Player = function(x, y) {
 	this._shotDelay = 0;
 	this._shotCost = 0;
 	
-	this._powerupRapid 		= 4; //max 4
+	this._powerupRapid 		= 0; //max 4
 	this._powerupPower 		= 0; //max 8
-	this._powerupShotSpeed 	= 4; //max 4
+	this._powerupShotSpeed 	= 0; //max 4
 	this._powerupType 		= 0; //max 4
-	this._powerupShots 		= 3; //max 4
+	this._powerupShots 		= 0; //max 4
 	this._powerupSpread 	= 0; //max 5
-	this._powerupLevel 		= 1; //max 1
-	this._powerupMulti 		= 2; //max 2
-	this._powerupGenerator 	= 10; //max 10
-	this._powerupRandom 	= 5; //max 5
-	this._powerupEfficiency = 5; //max 5
+	this._powerupLevel 		= 0; //max 1
+	this._powerupMulti 		= 0; //max 2
+	this._powerupGenerator 	= 0; //max 10
+	this._powerupRandom 	= 0; //max 5
+	this._powerupEfficiency = 0; //max 5
 };
 Player.prototype.doProcess = function() {
 	var xOff = 0, yOff = 0;
@@ -198,6 +198,9 @@ Player.prototype.doProcess = function() {
 		this._EN += (0.4 * (1 + this._powerupGenerator));
 	}
 	
+	this._HLmax = (this._Lv * 8) + 92;
+	this._AMmax = (this._Lv * 2) + 28;
+	this._ENmax = (this._Lv * 4) + 46;
 	this._HL = clamp(this._HL, 0, this._HLmax);
 	this._AM = clamp(this._AM, 0, this._AMmax);
 	this._EN = clamp(this._EN, 0, this._ENmax);
@@ -214,7 +217,7 @@ Player.prototype.testHit = function() {
 		if (this.testCollision(enemyProjectileList[i])) {
 			this._HL -= enemyProjectileList[i]._damage;
 			enemyProjectileList.splice(i, 1);
-			playSound('sounds/hitPlayer.wav', 1.0);
+			//playSound('sounds/hitPlayer.wav', 1.0);
 		}
 	}
 }
@@ -302,27 +305,6 @@ Enemy.prototype.fireWeapon = function(patternId) {
 				Math.cos(degToRad(tempDir)) * tempVelo, -Math.sin(degToRad(tempDir)) * tempVelo, 11, 1, 2));
 		}
 	}
-}
-
-var Tile = function(isSolid, tileNum) {
-	var _isSolid, _tileNum;
-	
-	this._isSolid = isSolid;
-	this._tileNum = tileNum;
-}
-
-var Item = function(item, type) {
-	var _itemId, _amount, _type;
-	
-	this._itemId = item;
-	this._type = type;
-}
-
-var ItemStack = function(item, amount) {
-	var _myItem, _amount;
-	
-	this._myItem = item;
-	this._amount = amount;
 }
 
 var Entity = function(x, y, type) {

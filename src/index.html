@@ -13,10 +13,23 @@
 	</head>
 	
 	<body bgcolor="black" text="white" link="green" alink="limegreen" vlink="darkgreen" onload="checkCookies();">
-		<ul id="debugMenu">
-            <a href="javascript:playSound('sounds/shot0.wav', 0.25);" class="buttonBasic animButton hasShadow">Lenk <span style="color:yellow">lol</span></a>
-			<a href="javascript:thePlayer._powerupType = clamp(thePlayer._powerupType + 1, 0, 5); playSound('sounds/shot1.wav', 0.25);" class="buttonBasic animButton hasShadow">Type+</a>
-			<a href="javascript:thePlayer._powerupType = clamp(thePlayer._powerupType - 1, 0, 5); playSound('sounds/shot2.wav', 0.25);" class="buttonBasic animButton hasShadow">Type-</a>
+		<ul id="debugMenu" onmouseover="playSound('sounds/shot2.wav', 0.2);" onclick="playSound('sounds/shot0.wav', 0.2);">
+            <a href="javascript:playSound('sounds/shot0.wav', 0.25);" class="buttonBasic animButton hasShadow" style="color:yellow">Lenk lol</a>
+			
+			<a href="javascript:thePlayer._powerupType = clamp(thePlayer._powerupType + 1, 0, 5);" class="buttonBasic animButton hasShadow">Type+</a>
+			<a href="javascript:thePlayer._powerupType = clamp(thePlayer._powerupType - 1, 0, 5);" class="buttonBasic animButton hasShadow">Type-</a>
+			
+			<a href="javascript:thePlayer._powerupRapid = clamp(thePlayer._powerupRapid + 1, 0, 4);" class="buttonBasic animButton hasShadow">Rapid+</a>
+			<a href="javascript:thePlayer._powerupRapid = clamp(thePlayer._powerupRapid - 1, 0, 4);" class="buttonBasic animButton hasShadow">Rapid-</a>
+			
+			<a href="javascript:thePlayer._powerupShots = clamp(thePlayer._powerupShots + 1, 0, 4);" class="buttonBasic animButton hasShadow">Shots+</a>
+			<a href="javascript:thePlayer._powerupShots = clamp(thePlayer._powerupShots - 1, 0, 4);" class="buttonBasic animButton hasShadow">Shots-</a>
+			
+			<a href="javascript:thePlayer._powerupLevel = clamp(thePlayer._powerupLevel + 1, 0, 1);" class="buttonBasic animButton hasShadow">S.Level+</a>
+			<a href="javascript:thePlayer._powerupLevel = clamp(thePlayer._powerupLevel - 1, 0, 1);" class="buttonBasic animButton hasShadow">S.Level-</a>
+			
+			<a href="javascript:thePlayer._Lv = clamp(thePlayer._Lv + 1, 1, 99);" class="buttonBasic animButton hasShadow">Level+</a>
+			<a href="javascript:thePlayer._Lv = clamp(thePlayer._Lv + 1, 1, 99);" class="buttonBasic animButton hasShadow">Level-</a>
         </ul>
 		
 		<canvas id="baseCanvas" width="480" height="360"></canvas>
